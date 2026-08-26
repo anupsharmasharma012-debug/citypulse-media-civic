@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CityPulse - Civic & Jan Shikayat Portal</title>
+    <link rel="stylesheet" href="https://anupsharmasharma012-debug.github.io/citypulse-core/style.css">
+</head>
+<body>
+    <div class="max-width-container">
+        <!-- Core Header Integration -->
+        <city-header></city-header>
+
+        <main style="padding: 10px 16px; display: flex; flex-direction: column; gap: 16px;">
+            <!-- Page Title Card -->
+            <div style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h3 style="font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 4px;">Jan Shikayat & Civic Hub</h3>
+                    <p style="font-size: 12px; color: var(--text-muted);">Raise local civic issues and track public notices.</p>
+                </div>
+                <span style="font-size: 28px;">📢</span>
+            </div>
+
+            <!-- New Complaint Form Card -->
+            <div style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 20px;">
+                <h4 style="font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 14px;">Raise a New Complaint</h4>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <div>
+                        <label style="font-size: 12px; color: var(--text-muted); font-weight: 600; display: block; margin-bottom: 6px;">Category</label>
+                        <select style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid var(--card-border); border-radius: 10px; padding: 10px 12px; color: #fff; outline: none; font-size: 13px;">
+                            <option style="background: #131824;">Street Light / Bijli</option>
+                            <option style="background: #131824;">Water Supply / Pani</option>
+                            <option style="background: #131824;">Road & Potholes / Sadak</option>
+                            <option style="background: #131824;">Garbage & Cleanliness / Kachra</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label style="font-size: 12px; color: var(--text-muted); font-weight: 600; display: block; margin-bottom: 6px;">Description / Details</label>
+                        <textarea rows="3" placeholder="Describe the issue briefly..." style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid var(--card-border); border-radius: 10px; padding: 10px 12px; color: #fff; outline: none; font-size: 13px; resize: none;"></textarea>
+                    </div>
+
+                    <button style="background: var(--accent); color: #fff; border: none; border-radius: 10px; padding: 12px; font-weight: 600; font-size: 14px; cursor: pointer; margin-top: 4px;">Submit Complaint</button>
+                </div>
+            </div>
+
+            <!-- Recent Local Tracker Card -->
+            <div style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 20px;">
+                <h4 style="font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 12px;">My Recent Applications</h4>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: rgba(255,255,255,0.02); border: 1px solid var(--card-border); border-radius: 10px;">
+                    <div>
+                        <div style="font-size: 13px; font-weight: 600; color: #fff;">Street Light Repair (#CP-8492)</div>
+                        <div style="font-size: 11px; color: var(--text-muted);">Ward No. 12 • Submitted 2 days ago</div>
+                    </div>
+                    <span style="font-size: 11px; background: rgba(16,185,129,0.1); color: var(--accent-success); padding: 3px 8px; border-radius: 6px; font-weight: 600;">Resolved</span>
+                </div>
+            </div>
+        </main>
+
+        <!-- Core Bottom Navigation Integration -->
+        <bottom-nav></bottom-nav>
+    </div>
+
+    <script src="https://anupsharmasharma012-debug.github.io/citypulse-core/components.js"></script>
+</body>
+</html>
