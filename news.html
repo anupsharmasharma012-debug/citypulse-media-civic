@@ -3,36 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CityPulse - Local News</title>
+    <title>CityPulse - Local Media</title>
     <link rel="stylesheet" href="https://anupsharmasharma012-debug.github.io/citypulse-core/style.css">
 </head>
 <body>
     <div class="max-width-container">
-        <city-header></city-header>
+        <!-- Naya Back Button Wala Topbar -->
+        <city-topbar title="Local Media"></city-topbar>
         
-        <main style="padding: 10px 16px; margin-bottom: 80px;" class="flex-column gap-3">
-            <city-ad-space></city-ad-space>
-
-            <!-- Filters -->
-            <div class="d-flex gap-2" style="overflow-x: auto; padding-bottom: 4px;">
-                <button class="cp-btn-primary" style="width: auto; border-radius: 20px; padding: 6px 14px;">All News</button>
-                <button class="cp-btn-outline" style="width: auto; border-radius: 20px; padding: 6px 14px;">Local Events</button>
-                <button class="cp-btn-outline" style="width: auto; border-radius: 20px; padding: 6px 14px;">Municipal</button>
-            </div>
-
-            <!-- Featured News Card -->
-            <div class="cp-card" style="padding: 0; overflow: hidden;">
-                <div style="height: 140px; background: rgba(59,130,246,0.1); display: flex; align-items: center; justify-content: center; font-size: 40px;">📰</div>
-                <div style="padding: 16px;">
-                    <div class="flex-between" style="margin-bottom: 8px;">
-                        <span style="font-size: 10px; background: rgba(59,130,246,0.1); color: var(--accent-blue); padding: 3px 8px; border-radius: 6px; font-weight: 600;">Breaking News</span>
-                        <span style="font-size: 11px; color: var(--text-muted);">2 hours ago</span>
+        <main style="padding: 10px 16px; margin-bottom: 80px;" class="flex-column gap-4">
+            
+            <!-- Weather / AQI Widget (Deep Content) -->
+            <div class="cp-card flex-between" style="padding: 12px;">
+                <div class="d-flex gap-3 align-items-center">
+                    <span style="font-size: 32px;">🌤️</span>
+                    <div>
+                        <div style="font-size: 14px; font-weight: 700;">32°C Bhatpara</div>
+                        <div style="font-size: 11px; color: var(--text-muted);">AQI: 85 (Moderate) • Humidity: 65%</div>
                     </div>
-                    <h3 style="margin: 0 0 6px 0; font-size: 15px; line-height: 1.4;">New Public Infrastructure Projects Announced</h3>
-                    <p style="margin: 0 0 12px 0; font-size: 12px; color: var(--text-muted); line-height: 1.4;">Local municipal authorities have outlined fresh road and utility upgrades...</p>
-                    <a href="#" style="font-size: 12px; color: var(--accent-blue); font-weight: 600; text-decoration: none;">Read Full Story ›</a>
                 </div>
             </div>
+
+            <!-- Scrollable Categories -->
+            <div class="d-flex gap-2" style="overflow-x: auto; padding-bottom: 5px;">
+                <button class="cp-btn-primary" style="width: auto; border-radius: 20px; padding: 6px 14px; font-size: 12px; white-space: nowrap;">Top Stories</button>
+                <button class="cp-btn-outline" style="width: auto; border-radius: 20px; padding: 6px 14px; font-size: 12px; white-space: nowrap;">Politics</button>
+                <button class="cp-btn-outline" style="width: auto; border-radius: 20px; padding: 6px 14px; font-size: 12px; white-space: nowrap;">Crime & Law</button>
+                <button class="cp-btn-outline" style="width: auto; border-radius: 20px; padding: 6px 14px; font-size: 12px; white-space: nowrap;">Municipality</button>
+            </div>
+
+            <!-- Full News Article List (Deep Content) -->
+            <div class="flex-column gap-3">
+                <div class="cp-card" style="padding: 0; overflow: hidden; margin: 0;">
+                    <div style="height: 140px; background: rgba(59,130,246,0.1) url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Kolkata_Night.jpg/800px-Kolkata_Night.jpg') center/cover;"></div>
+                    <div style="padding: 16px;">
+                        <span class="cp-badge-success" style="background: rgba(239, 68, 68, 0.1); color: var(--accent-red); margin-bottom: 8px; display: inline-block;">Live Update</span>
+                        <h3 style="margin: 0 0 6px 0; font-size: 15px; line-height: 1.4;">Highway construction causes traffic diversion at main crossing</h3>
+                        <p style="margin: 0 0 12px 0; font-size: 12px; color: var(--text-muted); line-height: 1.4;">Police have requested citizens to use the bypass road for the next 3 days due to heavy machinery movement...</p>
+                        <div class="flex-between">
+                            <span style="font-size: 10px; color: var(--text-muted);">2 hours ago • By City Reporter</span>
+                            <button class="cp-btn-outline" style="width: auto; padding: 4px 10px; font-size: 11px;">Share</button>
+                        </div>
+                    </div>
+                </div>
+
+                <city-ad-space></city-ad-space>
+
+                <div class="cp-card" style="padding: 12px; margin: 0; display: flex; gap: 12px;">
+                    <div style="width: 80px; height: 80px; background: rgba(150,150,150,0.1); border-radius: 8px; display: flex; justify-content: center; align-items: center; font-size: 24px;">🏛️</div>
+                    <div style="flex: 1;">
+                        <h4 style="margin: 0 0 4px 0; font-size: 13px; line-height: 1.3;">Municipal elections dates might be announced next week</h4>
+                        <span style="font-size: 10px; color: var(--text-muted);">Political • 5 hrs ago</span>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="cp-btn-primary" style="background: var(--text-main); color: var(--bg-color);" onclick="showToast('Reporter Mode Loading...')">
+                ✍️ Report a Local Incident
+            </button>
+
         </main>
 
         <bottom-nav></bottom-nav>
