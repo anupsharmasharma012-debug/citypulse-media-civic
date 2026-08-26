@@ -3,55 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CityPulse - Civic & Jan Shikayat</title>
+    <title>CityPulse - Civic Hub</title>
     <link rel="stylesheet" href="https://anupsharmasharma012-debug.github.io/citypulse-core/style.css">
 </head>
 <body>
     <div class="max-width-container">
-        <city-header></city-header>
+        <!-- Naya Back Button Wala Topbar -->
+        <city-topbar title="Civic Services"></city-topbar>
         
-        <main style="padding: 10px 16px; margin-bottom: 80px;" class="flex-column gap-3">
+        <main style="padding: 10px 16px; margin-bottom: 80px;" class="flex-column gap-4">
             <city-ad-space></city-ad-space>
 
-            <!-- Civic Header Info -->
-            <div class="cp-card flex-between">
-                <div>
-                    <h3 style="margin: 0 0 4px 0; font-size: 16px;">Jan Shikayat Hub</h3>
-                    <p style="margin: 0; font-size: 12px; color: var(--text-muted);">Raise local issues directly to authorities.</p>
+            <!-- Emergency Helplines (Deep Content) -->
+            <div>
+                <h4 style="margin: 0 0 10px 0; font-size: 13px; color: var(--text-muted);">Emergency Helplines</h4>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid var(--accent-red); padding: 10px; border-radius: 10px; text-align: center; cursor: pointer;" onclick="window.open('tel:100')">
+                        <div style="font-size: 20px; margin-bottom: 4px;">🚓</div>
+                        <div style="font-size: 11px; font-weight: 700; color: var(--text-main);">Police (100)</div>
+                    </div>
+                    <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid var(--accent-green); padding: 10px; border-radius: 10px; text-align: center; cursor: pointer;" onclick="window.open('tel:102')">
+                        <div style="font-size: 20px; margin-bottom: 4px;">🚑</div>
+                        <div style="font-size: 11px; font-weight: 700; color: var(--text-main);">Ambulance (102)</div>
+                    </div>
                 </div>
-                <span style="font-size: 28px;">📢</span>
             </div>
 
-            <!-- Complaint Form (Deep Content) -->
+            <!-- Deep Complaint Form -->
             <div class="cp-card flex-column gap-3">
-                <h4 style="margin: 0; font-size: 14px;">Raise a New Complaint</h4>
+                <h3 style="margin: 0; font-size: 15px;">File a Grievance</h3>
+                
                 <div>
-                    <label style="font-size: 12px; color: var(--text-muted); font-weight: 600;">Category</label>
+                    <label style="font-size: 12px; color: var(--text-muted); font-weight: 600;">Issue Category <span style="color:var(--accent-red);">*</span></label>
                     <select class="cp-input">
-                        <option>Street Light / Bijli</option>
-                        <option>Water Supply / Pani</option>
-                        <option>Road & Potholes / Sadak</option>
-                        <option>Garbage / Kachra</option>
+                        <option value="">Select a category...</option>
+                        <option>Street Light Not Working</option>
+                        <option>Water Supply Issue</option>
+                        <option>Road Damage / Potholes</option>
+                        <option>Garbage Collection Pending</option>
+                        <option>Illegal Encroachment</option>
                     </select>
                 </div>
+
                 <div>
-                    <label style="font-size: 12px; color: var(--text-muted); font-weight: 600;">Details</label>
-                    <textarea rows="3" class="cp-input" placeholder="Describe the issue..."></textarea>
+                    <label style="font-size: 12px; color: var(--text-muted); font-weight: 600;">Issue Location <span style="color:var(--accent-red);">*</span></label>
+                    <div style="display: flex; gap: 8px;">
+                        <input type="text" class="cp-input" placeholder="E.g., Ward 12, Main Road" style="flex:1;">
+                        <button class="cp-btn-outline" style="width: 40px; margin-top: 6px;" onclick="showToast('Fetching GPS...')">📍</button>
+                    </div>
                 </div>
-                <button class="cp-btn-primary" onclick="showLoader(); setTimeout(() => { hideLoader(); showToast('Complaint Submitted!'); }, 1500)">Submit Complaint</button>
+
+                <div>
+                    <label style="font-size: 12px; color: var(--text-muted); font-weight: 600;">Description</label>
+                    <textarea rows="3" class="cp-input" placeholder="Explain the exact problem here..."></textarea>
+                </div>
+
+                <!-- Fake Upload Button -->
+                <button class="cp-btn-outline" style="border-style: dashed; padding: 20px; font-size: 12px; display: flex; flex-direction: column; align-items: center; gap: 6px;">
+                    <span style="font-size: 20px;">📷</span>
+                    <span>Upload Proof Photo (Optional)</span>
+                </button>
+
+                <button class="cp-btn-primary" onclick="showLoader(); setTimeout(() => { hideLoader(); showToast('Application Sent to Municipality!'); }, 2000)">Submit Application</button>
             </div>
 
-            <!-- Recent Applications -->
-            <div class="cp-card">
-                <h4 style="margin: 0 0 12px 0; font-size: 14px;">My Recent Applications</h4>
-                <div class="flex-between" style="padding: 10px; background: rgba(150,150,150,0.05); border: 1px solid var(--card-border); border-radius: 10px;">
-                    <div>
-                        <div style="font-size: 13px; font-weight: 600;">Street Light (#CP-8492)</div>
-                        <div style="font-size: 11px; color: var(--text-muted);">Ward No. 12 • 2 days ago</div>
-                    </div>
-                    <span class="cp-badge-success">Resolved</span>
-                </div>
-            </div>
         </main>
         
         <bottom-nav></bottom-nav>
@@ -60,9 +75,6 @@
     <!-- Master Scripts -->
     <script src="https://anupsharmasharma012-debug.github.io/citypulse-core/config.js"></script>
     <script src="https://anupsharmasharma012-debug.github.io/citypulse-core/store.js"></script>
-    <script src="https://anupsharmasharma012-debug.github.io/citypulse-core/utils.js"></script>
-    <script src="https://anupsharmasharma012-debug.github.io/citypulse-core/auth-guard.js"></script>
-    <script src="https://anupsharmasharma012-debug.github.io/citypulse-core/api.js"></script>
     <script src="https://anupsharmasharma012-debug.github.io/citypulse-core/components.js"></script>
 </body>
 </html>
